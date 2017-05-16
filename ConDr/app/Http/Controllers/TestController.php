@@ -7,9 +7,9 @@ use DB;
 class TestController extends Controller{
     
     public function test(){
-        $enr=DB::select('select name from enumber');
+        $users=DB::select('select * from enumber');
        
-        return view('posts.welcome',compact('enr'));
+        return view('welcome',compact('enr'));
     }
     
 }

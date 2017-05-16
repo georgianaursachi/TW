@@ -6,6 +6,7 @@
 <li><a href="/euri">E-uri</a></li>
 <li><a href="/profil">Profil</a></li>
 <li class="current"><a href="/contact">Contact</a></li>
+<li><a href="/login">Deconectare</a></li>
 @endsection 
 
 @section('main')
