@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,3 +26,13 @@ Route::get('/produse', 'PostsController@produse');
 Route::get('/contact', 'PostsController@contact');
 
 Route::get('/adauga', 'PostsController@adauga');
+
+Route::get('/profil', 'PostsController@profil');
+
+Route::get('/setari', 'PostsController@setari');
+
+Route::get('/login', 'PostsController@login');
+
+Route::get('/inregistrare', 'PostsController@login_register');
+
+Route::get('/schimbare_parola', 'PostsController@login_password');

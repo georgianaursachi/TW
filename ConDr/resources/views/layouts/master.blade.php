@@ -16,6 +16,8 @@
 				    </nav>
 
             </div>
+        
+            @yield('banner')
 
 			<!-- Main -->
             @yield('main')
