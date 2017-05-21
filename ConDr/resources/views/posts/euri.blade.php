@@ -27,79 +27,19 @@
                         <p></p>
                         <div class="row 50%">
                             <div class="6u 12u(mobilep)">
-                                <form>
-                                    <input type="text" placeholder="Cauta un e aici..." required>
+                                <form action="/euri/{name}" method="GET" >
+                                    <input type="text" name="euri" placeholder="Cauta un E aici..." required >
                                     <button class="button" type="submit">Caută</button>
                                 </form>
+                                
                             </div>
 
                         </div>
-
+                       
+                        <!-- Chart -->
                         <p></p>
-                        <div class="row 150%">
-                            <section class="4u 12u(narrower)">
-                                <div class="box highlight">
-                                    <h3>Nivel de pericol</h3>
-                                    <p class="icon major">1/2/3</p>
-                                </div>
-                            </section>
-
-                            <section class="4u 12u(narrower)">
-                                <div class="box highlight">
-                                    <h3>Funcție tehnologică</h3>
-                                    <p>nume</p>
-                                </div>
-                            </section>
-
-                            <section class="4u 12u(narrower)">
-                                <div class="box highlight">
-                                    <h3>Denumire</h3>
-                                    <p>nume</p>
-                                </div>
-                            </section>
-                        </div>
-
-                        <p></p>
-
-                        <h3>Distributia E-urilor in produse</h3>
-
-
-                        <div class="4u 12u(narrower)" id="graphE"></div>
-                        <!--[if IE]><script src="resources/assets/js/excanvas.js"></script><![endif]-->
-                        <script src="/js/html5-canvas-bar-graph.js"></script>
-                        <script>
-                            (function() {
-
-                                function createCanvas(divName) {
-
-                                    var div = document.getElementById(divName);
-                                    var canvas = document.createElement('canvas');
-                                    div.appendChild(canvas);
-                                    if (typeof G_vmlCanvasManager != 'undefined') {
-                                        canvas = G_vmlCanvasManager.initElement(canvas);
-                                    }
-                                    var ctx = canvas.getContext("2d");
-                                    return ctx;
-                                }
-
-
-
-                                var ctx2 = createCanvas("graphE");
-
-                                var graph2 = new BarGraph(ctx2);
-                                graph2.margin = 2;
-                                graph2.width = content.offsetWidth;
-                                graph2.height = 150;
-                                graph2.xAxisLabelArr = ["E100", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
-                                setInterval(function() {
-                                    graph2.update([20, 10, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]);
-                                }, 1500);
-
-                            }());
-
-                        </script>
-
-
+                        {!! $chart->render() !!}
+               
                     </article>
 
 

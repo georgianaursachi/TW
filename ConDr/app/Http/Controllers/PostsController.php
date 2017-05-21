@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Charts;
 
 class PostsController extends Controller
 {
@@ -11,7 +13,58 @@ class PostsController extends Controller
     }
     
     public function euri(){
-        return view('posts.euri');
+        
+        $values = array();
+        $labels = array();
+        
+        $distribution = DB::table('enumber')->select('id','distribution')->orderBy('distribution', 'desc')->take(10)->get();
+       
+            foreach ($distribution as $d) {
+                $values[] = $d->distribution;
+                $labels[] = $d->id;
+                
+                }
+          
+        
+        $chart = Charts::create('bar', 'highcharts')
+            ->title('Distributia E-urilor in produse')
+            ->elementLabel('Proporție')
+            ->labels($labels)
+            ->values($values)
+            ->dimensions(0,0)
+            ->responsive(true);
+        
+        return view('posts.euri',['chart' => $chart]);
+    }
+    
+    public function euri_name(){
+    
+        $input = $_GET['euri'];
+    
+        $enumber = DB::table('enumber')->where('id', $input)->orWhere('name', $input)->get();
+        
+        $values = array();
+        $labels = array();
+        
+        $distribution = DB::table('enumber')->select('id','distribution')->orderBy('distribution', 'desc')->take(10)->get();
+       
+            foreach ($distribution as $d) {
+                $values[] = $d->distribution;
+                $labels[] = $d->id;
+                
+                }
+          
+        
+        $chart = Charts::create('bar', 'highcharts')
+            ->title('Distributia E-urilor in produse')
+            ->elementLabel('Proporție')
+            ->labels($labels)
+            ->values($values)
+            ->dimensions(0,0)
+            ->responsive(true);
+        
+    
+        return view('posts.euri-name',['enumber' =>$enumber, 'chart' => $chart]);
     }
     
     public function produse(){

@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('layouts.head')
+    {!! Charts::assets() !!}
 </head>
 <body>
     <div id="page-wrapper">
