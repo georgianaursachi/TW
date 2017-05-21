@@ -27,7 +27,7 @@
                         <p></p>
                         <div class="row 50%">
                             <div class="6u 12u(mobilep)">
-                                <form  class="form-wrapper cf" action="/euri/{name}" method="GET" >
+                                <form action="/euri/{name}" method="GET" >
                                     <input type="text" name="euri" placeholder="Cauta un E aici..." required >
                                     <button class="button" type="submit">Caută</button>
                                 </form>
@@ -35,19 +35,11 @@
                             </div>
 
                         </div>
-                        
-                        
-
-                        
+                       
                         <!-- Chart -->
                         <p></p>
                         {!! $chart->render() !!}
                
-
-                        
-
-
-
                     </article>
 
 
