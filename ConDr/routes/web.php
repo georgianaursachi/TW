@@ -21,6 +21,8 @@ Route::get('/', 'PostsController@index');
 
 Route::get('/euri', 'PostsController@euri');
 
+Route::get('/euri/{name}', 'PostsController@euri_name');
+
 Route::get('/produse', 'PostsController@produse');
 
 Route::get('/contact', 'PostsController@contact');
