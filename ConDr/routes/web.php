@@ -12,10 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return View::make('welcome');
 });
 
-Route::get('/data', 'TestController@test');
 
 Route::get('/', 'PostsController@index');
 
@@ -25,7 +24,11 @@ Route::get('/euri/{name}', 'PostsController@euri_name');
 
 Route::get('/produse', 'PostsController@produse');
 
-Route::get('/contact', 'PostsController@contact');
+Route::get('/produse/{name}', 'PostsController@produse_name')->name('/produse/{name}');
+
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact']);
+
+Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
 
 Route::get('/adauga', 'PostsController@adauga');
 
