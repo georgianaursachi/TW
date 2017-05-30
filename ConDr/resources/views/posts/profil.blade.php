@@ -7,15 +7,14 @@
 <li class="current"><a href="/profil">Profil</a><ul>
     <li><a href="/setari">Setări</a></li></ul></li>
 <li><a href="/contact">Contact</a></li>
-<li><a href="/login">Deconectare</a></li>
+<li><a href="auth/logout">Deconectare</a></li>
 @endsection
 
 @section ('main')
 <section class="profile">
 <main>
     <div class="container icons">
-        <div class="big-icon"> </div>
-
+        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class ="big-icon">
 
         <div class="rate">
         </div>
@@ -25,8 +24,8 @@
 
     </div>
     <div class="details">
-        <h3>Leonardo DiCaprio</h3>
-        <p>leonardo.dicaprio@yahoo.com</p>
+        <h3>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h3>
+        <p>{{ Auth::user()->email }}</p>
     </div>
     <div class="container bio">
             <div class="title">

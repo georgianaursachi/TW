@@ -7,7 +7,7 @@
 <li><a href="/profil">Profil</a><ul>
     <li><a href="/setari">Setări</a></li></ul></li>
 <li><a href="/contact">Contact</a></li>
-<li><a href="/login">Deconectare</a></li>
+<li><a href="auth/logout">Deconectare</a></li>
 @endsection
 
 @section ('banner') 
@@ -18,7 +18,9 @@
 </section>
 @endsection
 
-@section ('main') 
+@section ('main')
+<form>
+    {{ csrf_field() }}
 <section class="wrapper style1">
     <div class="container">
         <div class="row 200%">
@@ -106,4 +108,5 @@
         </div>
     </div>
 </section>
+</form>
 @endsection

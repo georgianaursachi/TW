@@ -7,7 +7,7 @@
 <li><a href="/profil">Profil</a><ul>
     <li><a href="/setari">Setări</a></li></ul></li>
 <li class="current"><a href="/contact">Contact</a></li>
-<li><a href="/login">Deconectare</a></li>
+<li><a href="auth/logout">Deconectare</a></li>
 @endsection 
 
 @section('main')

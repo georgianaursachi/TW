@@ -6,6 +6,14 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('favicon.ico') }}">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('favicon.ico') }}">

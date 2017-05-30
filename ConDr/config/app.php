@@ -180,6 +180,8 @@ return [
         
         ConsoleTVs\Charts\ChartsServiceProvider::class, //for charts
         
+        //for upload image
+        Intervention\Image\ImageServiceProvider::class, 
 
     ],
 
@@ -230,6 +232,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class, //for charts
+        
+        //for upload image
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

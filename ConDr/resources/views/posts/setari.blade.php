@@ -7,36 +7,38 @@
 <li  class="current"><a href="/profil">Profil</a><ul>
     <li><a href="/setari">Setări</a></li></ul></li>
 <li><a href="/contact">Contact</a></li>
-<li><a href="/login">Deconectare</a></li>
+<li><a href="auth/logout">Deconectare</a></li>
 @endsection
 
 @section ('main') 
     <section class="wrapper style1">
     <div class="container">
-         <div class="row ">
-             
+        <form enctype="multipart/form-data" action="/profil" method="POST">
+            {{ csrf_field() }}
+        <div class="row ">
+                  
             <div class="2u 12u(mobilep)" >
-                <strong>Nume:</strong>
+                <main>
+                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class ="avatar-icon">
+                        <input type="file" name="avatar">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"
+                </main>
             </div>
-
-             <div class="10u 12u(mobilep)">
-             <input type="text" name="name" id="name" placeholder="DiCaprio" required/>
-             </div>
              
-             <div class="2u 12u(mobilep)" >
+            <div class="1u 12u(mobilep)" >
                 <strong>Prenume:</strong>
             </div>
 
-             <div class="10u 12u(mobilep)">
-             <input type="text" name="first_name" id="f_name" placeholder="Leonardo" required/>
+             <div class="9u 12u(mobilep)">
+             <input type="text" name="name" id="name" placeholder="{{ Auth::user()->first_name }}"/>
              </div>
              
-             <div class="2u 12u(mobilep)" >
-                <strong>Parola:</strong>
+             <div class="1u 12u(mobilep)" >
+                <strong>Nume:</strong>
             </div>
 
-             <div class="10u 12u(mobilep)">
-             <input type="password" name="pass" id="pass" placeholder="*******" required/>
+             <div class="9u 12u(mobilep)">
+             <input type="text" name="first_name" id="f_name" placeholder="{{ Auth::user()->last_name }}"/>
              </div>
 
         </div>
@@ -73,20 +75,12 @@
              
         <br></br>
     <div class="row">
-            <div class="3u 12u(mobilep)">
-                <button class="button2">Renuntă la modificări</button>
-            </div>
-        <div class="3u 12u(mobilep)">
-                
-            </div>
-        <div class="3u 12u(mobilep)">
-                
-        </div>
         <div class="3u 12u(mobilep)">
                 <button class="button2">Salvează modificările </button>
         </div>
+        
     </div>
-    </div>
+        </form>
     </div>
     </section>
 @endsection

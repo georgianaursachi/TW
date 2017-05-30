@@ -3,6 +3,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ConDr</title>
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+
 <!-- CSS -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
