@@ -4,18 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use DB;
-use Charts;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\ContactFormRequest;
 use App\Enumber;
 use App\Product;
-use Mail;
 use Session;
-use App\Http\Requests\ContactFormRequest;
+use Charts;
+use Image;
+use Auth;
+use Mail;
+use DB;
+
 
 class PostsController extends Controller
 {
-    public function index(){
-        return view('posts.index');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
     
     public function euri(){
@@ -63,11 +68,11 @@ class PostsController extends Controller
     
     public function postContact(ContactFormRequest $request){
         
-        $data = array(
-			'email' => $request->email,
-			'subject' => $request->subject,
-			'bodyMessage' => $request->message
-			);
+       $data = array(
+        'email' => $request->email,
+        'subject' => $request->subject,
+        'bodyMessage' => $request->message
+        );
         
         Mail::send('emails.contact', $data, function($message) use ($data){
 			$message->from($data['email']);
@@ -90,19 +95,24 @@ class PostsController extends Controller
         return view('posts.profil');
     }
     
+    public function update_avatar(Request $request){
+        
+        //Handle the user upload avatar
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->save( public_path('/uploads/avatars/' . $filename) );
+            
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        
+        return view('posts.profil');
+    }
+    
     public function setari(){
         return view('posts.setari');
     }
     
-    public function login(){
-        return view('posts.login');
-    }
-    
-    public function login_register(){
-        return view('posts.login_register');
-    }
-    
-    public function login_password(){
-        return view('posts.login_password');
-    }
 }

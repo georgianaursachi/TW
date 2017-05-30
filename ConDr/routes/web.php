@@ -16,13 +16,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', 'PostsController@index');
+//Enumber route
 
 Route::get('/euri', 'PostsController@euri');
 
+//
+
 Route::get('/euri/{name}', 'PostsController@euri_name');
 
+//Products route
+
 Route::get('/produse', 'PostsController@produse');
+
 
 Route::get('/produse/{name}', 'PostsController@produse_name')->name('/produse/{name}');
 
@@ -30,14 +35,43 @@ Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact
 
 Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
 
+//Add product route
+
 Route::get('/adauga', 'PostsController@adauga');
+
+//Profile route
 
 Route::get('/profil', 'PostsController@profil');
 
+Route::post('/profil', 'PostsController@update_avatar');
+
+//Settings route
+
 Route::get('/setari', 'PostsController@setari');
 
-Route::get('/login', 'PostsController@login');
+//Authentication route
 
-Route::get('/inregistrare', 'PostsController@login_register');
+Route::get('auth/login', 'Auth\LoginController@showLoginForm');
 
-Route::get('/schimbare_parola', 'PostsController@login_password');
+Route::post('auth/login', 'Auth\LoginController@login');
+
+Route::get('auth/logout', 'Auth\LoginController@logout');
+
+Route::post('auth/logout', 'Auth\LoginController@logout');
+
+//Registration routes
+
+Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
+
+Route::post('auth/register', 'Auth\RegisterController@register');
+
+//Reset password routes
+
+Route::get('passwords/reset_password', 'Auth\ForgotPasswordController@showLinkRequestForm');
+
+Route::post('passwords/reset_password', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
+//Home route
+
+Route::get('/', 'HomeController@index')->name('index');
+

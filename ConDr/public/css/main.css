@@ -2465,6 +2465,47 @@
 		letter-spacing: -0.025em;
 	}
 
+
+input[type="submit"],
+input[type="button"],
+.button2 {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		background-color: #37c0fb;
+		border-radius: 5px;
+		border: 0;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		padding: 0 3em;
+		line-height: 4.75em;
+		min-width: 10em;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 600;
+		letter-spacing: -0.025em;
+        font-size: 0.9em;
+	}
+
+input[type="submit"],
+.button2:hover {
+			background-color: #50c8fb;
+			color: #fff !important;
+		}
+
+input[type="submit"],
+.button2:active {
+			background-color: #1eb8fb;
+			color: #fff;
+		}
+
+
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
@@ -2522,6 +2563,42 @@
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+		}
+
+.button3 {
+    -moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		background-color: #37c0fb;
+		border-radius: 5px;
+		border: 0;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		padding: 0 3em;
+		line-height: 3.2em;
+		min-width: 8em;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 600;
+		letter-spacing: -0.025em;
+        font-size: 0.9em;
+        float: right;
+}
+
+.button3:hover{
+    background-color: #50c8fb;
+			color: #fff !important;
+}
+
+.button3:active {
+			background-color: #1eb8fb;
+			color: #fff;
 		}
 
 /* Box */
@@ -3223,11 +3300,19 @@ main .icons {
 main .icons .big-icon {
   width: 180px;
   height: 180px;
-  background: url(http://simplyleonardodicaprio.com/wp-content/uploads/leo-1.jpg) center top;
   background-size: 140%;
   border-radius: 50%;
-  border: 2px solid black;
   margin-top: 50px;
+  align-content: center;
+  -webkit-transition: border 0.5s linear;
+  transition: border 0.5s linear;
+}
+
+main .avatar-icon {
+  width: 180px;
+  height: 180px;
+  background-size: 140%;
+  border-radius: 50%;
   align-content: center;
   -webkit-transition: border 0.5s linear;
   transition: border 0.5s linear;
