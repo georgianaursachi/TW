@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\View;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\ContactFormRequest;
+use App\Enumber;
+use App\Product;
+use Session;
 use Charts;
 use Image;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use Mail;
+use DB;
+
 
 class PostsController extends Controller
 {
@@ -18,65 +25,62 @@ class PostsController extends Controller
     
     public function euri(){
         
-        $values = array();
-        $labels = array();
+        $chart = (new Enumber)->chart();
         
-        $distribution = DB::table('enumber')->select('id','distribution')->orderBy('distribution', 'desc')->take(10)->get();
-       
-            foreach ($distribution as $d) {
-                $values[] = $d->distribution;
-                $labels[] = $d->id;
-                
-                }
-          
-        
-        $chart = Charts::create('bar', 'highcharts')
-            ->title('Distributia E-urilor in produse')
-            ->elementLabel('Proporție')
-            ->labels($labels)
-            ->values($values)
-            ->dimensions(0,0)
-            ->responsive(true);
-        
-        return view('posts.euri',['chart' => $chart]);
+        return view('posts.euri', compact('chart'));
     }
     
-    public function euri_name(){
+    public function euri_name($input, Request $request){
     
-        $input = $_GET['euri'];
+        $input = $request->input('euri');
+        $input = '%'.$input.'%';
     
-        $enumber = DB::table('enumber')->where('id', $input)->orWhere('name', $input)->get();
+        $enumber = Enumber::whereRaw('UPPER(id) like UPPER(?)', array( $input))
+            ->orWhereRaw('UPPER(name) like UPPER(?)', array( $input))
+            ->get();
         
-        $values = array();
-        $labels = array();
-        
-        $distribution = DB::table('enumber')->select('id','distribution')->orderBy('distribution', 'desc')->take(10)->get();
-       
-            foreach ($distribution as $d) {
-                $values[] = $d->distribution;
-                $labels[] = $d->id;
-                
-                }
-          
-        
-        $chart = Charts::create('bar', 'highcharts')
-            ->title('Distributia E-urilor in produse')
-            ->elementLabel('Proporție')
-            ->labels($labels)
-            ->values($values)
-            ->dimensions(0,0)
-            ->responsive(true);
-        
+        $chart = (new Enumber)->chart();
     
-        return view('posts.euri-name',['enumber' =>$enumber, 'chart' => $chart]);
+        return view('posts.euri-name',compact ('enumber','chart'));
     }
     
     public function produse(){
         return view('posts.produse');
     }
     
-    public function contact(){
+    public function produse_name($input, Request $request){
+        
+        $input = $request->input('produs');
+        
+        $products = Product::with('enumbers')
+            ->with('allergens')
+            ->whereRaw('UPPER(product_name) like UPPER(?)', array( $input.'%'))
+            ->orWhere('bar_code',$input)
+            ->get();
+        
+        return view('posts.produse-name', compact('products'));
+       
+    }
+    
+    public function getContact(){
         return view('posts.contact');
+    }
+    
+    public function postContact(ContactFormRequest $request){
+        
+       $data = array(
+        'email' => $request->email,
+        'subject' => $request->subject,
+        'bodyMessage' => $request->message
+        );
+        
+        Mail::send('emails.contact', $data, function($message) use ($data){
+			$message->from($data['email']);
+			$message->to('contact@condr.com');
+			$message->subject($data['subject']);
+		});
+        
+        return \Redirect::route('contact')->with('message', 'Mulțumim pentru e-mail!');
     }
     
     public function adauga(){

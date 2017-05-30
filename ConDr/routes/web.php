@@ -12,12 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return View::make('welcome');
 });
 
-Auth::routes();
-
-Route::get('/data', 'TestController@test');
 
 //Enumber route
 
@@ -31,9 +28,12 @@ Route::get('/euri/{name}', 'PostsController@euri_name');
 
 Route::get('/produse', 'PostsController@produse');
 
-//Contact route
 
-Route::get('/contact', 'PostsController@contact');
+Route::get('/produse/{name}', 'PostsController@produse_name')->name('/produse/{name}');
+
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact']);
+
+Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
 
 //Add product route
 
