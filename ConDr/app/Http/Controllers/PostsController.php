@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use DB;
 use Charts;
 use App\Enumber;
 use App\Product;
+use Mail;
+use Session;
+use App\Http\Requests\ContactFormRequest;
 
 class PostsController extends Controller
 {
@@ -21,9 +25,9 @@ class PostsController extends Controller
         return view('posts.euri', compact('chart'));
     }
     
-    public function euri_name(){
+    public function euri_name($input, Request $request){
     
-        $input = $_GET['euri'];
+        $input = $request->input('euri');
         $input = '%'.$input.'%';
     
         $enumber = Enumber::whereRaw('UPPER(id) like UPPER(?)', array( $input))
@@ -39,9 +43,9 @@ class PostsController extends Controller
         return view('posts.produse');
     }
     
-    public function produse_name(){
+    public function produse_name($input, Request $request){
         
-        $input = $_GET['produs'];
+        $input = $request->input('produs');
         
         $products = Product::with('enumbers')
             ->with('allergens')
@@ -50,10 +54,28 @@ class PostsController extends Controller
             ->get();
         
         return view('posts.produse-name', compact('products'));
+       
     }
     
-    public function contact(){
+    public function getContact(){
         return view('posts.contact');
+    }
+    
+    public function postContact(ContactFormRequest $request){
+        
+        $data = array(
+			'email' => $request->email,
+			'subject' => $request->subject,
+			'bodyMessage' => $request->message
+			);
+        
+        Mail::send('emails.contact', $data, function($message) use ($data){
+			$message->from($data['email']);
+			$message->to('contact@condr.com');
+			$message->subject($data['subject']);
+		});
+        
+        return \Redirect::route('contact')->with('message', 'Mulțumim pentru e-mail!');
     }
     
     public function adauga(){

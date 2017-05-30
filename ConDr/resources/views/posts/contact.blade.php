@@ -28,30 +28,47 @@
                         <!--<span class="image featured"><img src="images/banner.jpg" alt="" /></span>-->
 
                     </article>
-                    <section class="6u 12u(narrower)">
+                    @if(Session::has('message'))
+                        <div class="alert alert-info">
+                          {{Session::get('message')}}
+                        </div>
+                    @endif
+                    
+                    <section class="8u 12u(narrower)">
                         <h3>Contact</h3>
-                        <form>
+                        {!! Form::open(array('route' => 'contact_form', 'class' => 'form')) !!}
+                            
                             <div class="row 50%">
-                                <div class="6u 12u(mobilep)">
-                                    <input type="text" name="name" id="name" placeholder="Nume" required/>
+                                
+                                <div class="6u 12u(mobilep) form-group">
+                                    
+                                     {!! Form::email('email', null, 
+                                            array('required', 'class'=>'form-control', 
+                                                'placeholder'=>'Email')) !!}
+                                </div> 
+                                <div class="6u 12u(mobilep) form-group">
+                    
+                                    {!! Form::text('subject', null, 
+                                            array('required', 'class'=>'form-control', 
+                                                'placeholder'=>'Subiect')) !!}
                                 </div>
-                                <div class="6u 12u(mobilep)">
-                                    <input type="email" name="email" id="email" placeholder="Email" required/>
+                            </div>
+                            <div class="row 50%">
+                                <div class="12u form-group">
+                                    {!! Form::textarea('message', null, 
+                                            array('required', 
+                                            'class'=>'form-control', 
+                                                'placeholder'=>'Mesaj')) !!}
                                 </div>
                             </div>
                             <div class="row 50%">
                                 <div class="12u">
-                                    <textarea name="message" id="message" placeholder="Mesaj" rows="5" required></textarea>
+                                    
+                                    {!! Form::submit('Trimite e-mail', 
+                                        array('class'=>'btn btn-success button alt form-control')) !!}
                                 </div>
                             </div>
-                            <div class="row 50%">
-                                <div class="12u">
-                                    <ul class="actions">
-                                        <li><input type="submit" class="button alt" value="Trimite mesaj" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
+                        {!! Form::close() !!}
                     </section>
 
                 </div>

@@ -101,10 +101,11 @@
                             </section>
                         </div>
                         <ul>
+                            
                             <h3>Alte produse</h3>
+                           
                         @else
-                        
-                            <li><a href="">{{$p->product_name}}</a></li>
+                            <li><a href="/produse/%7Bname%7D?produs=@php echo str_replace(' ', '+', $p->product_name);@endphp">{{$p->product_name}}</a></li>
                        
                         @endif
                         </ul>
