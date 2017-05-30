@@ -28,13 +28,15 @@
                             <p>Poti cauta dupa cod(exemplu: E100), sau denumire(exemplu: Curcumina).</p>
                         </header>
                         <p></p>
-                        <div class="row 50%">
-                            <div class="6u 12u(mobilep)">
-                                <form method="GET" action="/euri/{name}">
-                                    <input type="text" name="euri" placeholder="Cauta un e aici..." required>
-                                    <button class="button" type="submit">Caută</button>
+                       <div class="row 50%">
+                            <div class="7u 12u(mobilep)">
+                                <form action="/euri/{name}" method="GET" >
+                                <input type="text" name="euri" placeholder="Caută un E aici..." required >
+                            </div>
+                            <div class="2u 12u(mobilep)">
+                                    <button class="button3" type="submit">Caută</button>
                                 </form>
-
+                                
                             </div>
 
                         </div>
@@ -100,13 +102,7 @@
 
                     <!-- Sidebar -->
                     
-                    <section>
-                        <h3>Interpretare nivel pericol</h3>
-                       
-                        <p><img src="/images/error-triangle(0).png"> 0- Considerat inofensiv</p>
-                        <p><img src="/images/error-triangle (1).png"> 1- A nu se depasi doza zilnică</p>
-                        <p><img src="/images/error-triangle (2).png"> 2- Consumul frecvent NU este recomandat</p>
-                    </section>
+                    @include('layouts.euri_nvl_pericol')
 
                     <section>
                         <h3>Ce sunt e-urile?</h3>

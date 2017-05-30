@@ -19,7 +19,7 @@
 
 			b.push(
 				'<a ' +
-					'class="link depth-' + indent + '"' +
+					'class="link depth-' + + '"' +
 					( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
 					( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
 				'>' +
