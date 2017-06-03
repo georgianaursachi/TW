@@ -179,10 +179,11 @@ return [
         Yajra\Oci8\Oci8ServiceProvider::class, //for oracle DB
         
         ConsoleTVs\Charts\ChartsServiceProvider::class, //for charts
-        Collective\Html\HtmlServiceProvider::class, //for Contact Form
         
         //for upload image
-        Intervention\Image\ImageServiceProvider::class, 
+        Intervention\Image\ImageServiceProvider::class,
+        
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -233,14 +234,13 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class, //for charts
-        'Image' => Intervention\Image\Facades\Image::class, //for upload image
-
-        /*for Contact Form*/
+        
+        //for upload image
+        'Image' => Intervention\Image\Facades\Image::class,
+       
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-
     ],
-    
 
 ];

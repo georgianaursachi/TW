@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Http\Requests\ContactFormRequest;
-use App\Enumber;
-use App\Product;
-use Session;
+use DB;
 use Charts;
 use Image;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use App\Enumber;
+use App\Product;
+use App\Diseases;
+use App\Allergen;
+use App\Http\Requests\ContactFormRequest;
 use Mail;
-use DB;
-
 
 class PostsController extends Controller
 {
@@ -93,6 +92,24 @@ class PostsController extends Controller
     
      public function profil(){
         return view('posts.profil');
+    }
+    
+    public function profil_table(){
+        $user = Auth::user();
+        $id = $user->id;
+        
+        $diseases = Diseases::with('diseases')
+                ->join('user_disease', 'diseases.id', '=', 'user_disease.disease_id')
+                ->where('user_disease.user_id', '=', $id)
+                ->get();
+        
+        $allergens = Allergen::with('allergens')
+                ->join('allergens_users', 'allergens.id', '=', 'allergens_users.allergen_id')
+                ->where('allergens_users.user_id', '=', $id)
+                ->get();
+        
+        return view('posts.profil', compact('diseases','allergens'));
+        
     }
     
     public function update_avatar(Request $request){

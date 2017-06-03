@@ -2465,7 +2465,6 @@
 		letter-spacing: -0.025em;
 	}
 
-
 input[type="submit"],
 input[type="button"],
 .button2 {
@@ -2504,7 +2503,6 @@ input[type="submit"],
 			background-color: #1eb8fb;
 			color: #fff;
 		}
-
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
@@ -3282,6 +3280,36 @@ input[type="submit"],
 
 	}
 
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat;
+}
+
+img {
+  display: block;
+  max-width:200px;
+  max-height:200px;
+  width: auto;
+  height: auto;
+}
+
+.up {
+    text-transform: uppercase;
+}
+
 main {
 
 }
@@ -3298,9 +3326,9 @@ main .icons {
           justify-content: space-between;
 }
 main .icons .big-icon {
-  width: 180px;
-  height: 180px;
-  background-size: 140%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid black;
   border-radius: 50%;
   margin-top: 50px;
   align-content: center;
@@ -3309,9 +3337,9 @@ main .icons .big-icon {
 }
 
 main .avatar-icon {
-  width: 180px;
-  height: 180px;
-  background-size: 140%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid black;
   border-radius: 50%;
   align-content: center;
   -webkit-transition: border 0.5s linear;
