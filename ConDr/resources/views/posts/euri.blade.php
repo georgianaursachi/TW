@@ -25,12 +25,10 @@
                             <p>Poți căuta după cod(exemplu: E100), sau denumire(exemplu: Curcumină).</p>
                         </header>
                         <p></p>
-
-                         <div class="row 50%">
+                        <div class="row 50%">
                             <div class="7u 12u(mobilep)">
                                 <form action="/euri/{name}" method="GET" >
-                                <input type="text" name="euri" placeholder="Caută un E aici..." required >
-
+                                <input type="text" name="euri" placeholder="Cauta un E aici..." required >
                             </div>
                             <div class="2u 12u(mobilep)">
                                     <button class="button3" type="submit">Caută</button>
@@ -39,12 +37,11 @@
                             </div>
 
                         </div>
-                        
+                       
                         <!-- Chart -->
                         <p></p>
                         {!! $chart->render() !!}
                
-
                     </article>
 
 

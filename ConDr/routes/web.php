@@ -12,28 +12,30 @@
 */
 
 Route::get('/', function () {
-    return View::make('welcome');
+    return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/data', 'TestController@test');
 
 //Enumber route
 
 Route::get('/euri', 'PostsController@euri');
 
-//
+//Enumber search E route
 
 Route::get('/euri/{name}', 'PostsController@euri_name');
 
-//Products route
+//Products routes
 
 Route::get('/produse', 'PostsController@produse');
 
-
 Route::get('/produse/{name}', 'PostsController@produse_name')->name('/produse/{name}');
 
-Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact']);
+//Contact route
 
-Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
+Route::get('/contact', 'PostsController@contact');
 
 //Add product route
 
@@ -42,6 +44,8 @@ Route::get('/adauga', 'PostsController@adauga');
 //Profile route
 
 Route::get('/profil', 'PostsController@profil');
+Route::get('/profil', 'PostsController@profil_table');
+Route::post('/profil', 'PostsController@profil_table');
 
 Route::post('/profil', 'PostsController@update_avatar');
 
@@ -49,7 +53,13 @@ Route::post('/profil', 'PostsController@update_avatar');
 
 Route::get('/setari', 'PostsController@setari');
 
-//Authentication route
+//Contact routes
+
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact']);
+
+Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
+
+//Authentication routes
 
 Route::get('auth/login', 'Auth\LoginController@showLoginForm');
 

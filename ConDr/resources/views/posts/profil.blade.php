@@ -14,7 +14,7 @@
 <section class="profile">
 <main>
     <div class="container icons">
-        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class ="big-icon">
+        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class ="icons big-icon">
 
         <div class="rate">
         </div>
@@ -31,36 +31,60 @@
             <div class="title">
                 <h6>Descriere</h6>
             </div>
+        @if(Auth::user()->description != null)
             <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro officiis fugit hic vel voluptates perferendis aut quibusdam sit omnis unde aspernatur quae repellat blanditiis autem, a libero asperiores neque illum aliquid est tempore. Eveniet velit voluptate amet facere, repellendus aperiam, cumque est ipsam. Asperiores expedita iusto, inventore sit suscipit nihil repudiandae? Laboriosam cum maxime dolorem neque, in veniam expedita ad. Hic fugit necessitatibus blanditiis, optio dignissimos molestiae nam, numquam odio.</p>
-                <br></br>
+                <p>{{ Auth::user()->description }}</p>
             </div>
+        <br>
+         @else
+            <div class="content">
+                <p>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} nu și-a actualizat descrierea.</p>
+            </div>
+        <br>
+         @endif
+        
+            @if (count($diseases) != 0)
             <div class="table-responsive-vertical shadow-z-1">
               <table id="table" class="table table-hover table-mc-light-blue">
                   <thead>
                     <tr>
-                      <th>Denumire boală</th>
-                      <th>Denumire alergie</th>
+                      <th><strong>Boală</strong></th>
+                      <th><strong>Descriere boală</strong></th>
                     </tr>
                   </thead>
                   <tbody>
+                      @foreach($diseases as $d)
                     <tr>
-                      <td data-title="Denumire boală">Cancer</td>
-                      <td data-title="Denumire alergie"></td>
+                      <td >{{ $d->disease_name }}</td>
+                      <td >{{ $d->description }}</td>
                     </tr>
-                    <tr>
-                       <td data-title="Denumire boală">Diabet</td>
-                      <td data-title="Denumire alergie">Alergie la căpșuni</td>
-                    </tr>
-                    <tr>
-                       <td data-title="Denumire boală">Acnee</td>
-                      <td data-title="Denumire alergie">Biscuiți</td>
-                    </tr>
-                  </tbody>
+                      @endforeach
+                  </tbody> 
                 </table>
-              </div>
+            </div>
+            <br>
+            @endif
+    
+             @if (count($allergens) != 0)
+            <div class="table-responsive-vertical shadow-z-1">
+              <table id="table" class="table table-hover table-mc-light-blue">
+                  <thead>
+                    <tr>
+                      <th><strong>Alergie</strong></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        @foreach($allergens as $a)
+                    <tr>
+                      <td >{{ $a->name }}</td>
+                    </tr>
+                      @endforeach
+                  </tbody> 
+                </table>
+            </div>
     <br></br><br></br>
     </div>
+            @endif
 </main>
 </section>
 @endsection

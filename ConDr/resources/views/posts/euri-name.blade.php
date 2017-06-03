@@ -28,9 +28,7 @@
                             <p>Poți căuta după cod(exemplu: E100), sau denumire(exemplu: Curcumină).</p>
                         </header>
                         <p></p>
-
-                       <div class="row 50%">
-
+                        <div class="row 50%">
                             <div class="7u 12u(mobilep)">
                                 <form action="/euri/{name}" method="GET" >
                                 <input type="text" name="euri" placeholder="Caută un E aici..." required >
@@ -103,7 +101,7 @@
                 <div id="sidebar">
 
                     <!-- Sidebar -->
-
+                    
                     @include('layouts.euri_nvl_pericol')
 
                     <section>

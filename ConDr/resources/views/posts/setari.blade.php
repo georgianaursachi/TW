@@ -7,7 +7,6 @@
 <li  class="current"><a href="/profil">Profil</a><ul>
     <li><a href="/setari">Setări</a></li></ul></li>
 <li><a href="/contact">Contact</a></li>
-
 <li><a href="auth/logout">Deconectare</a></li>
 @endsection
 
@@ -84,5 +83,4 @@
         </form>
     </div>
     </section>
-
 @endsection
