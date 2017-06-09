@@ -24,6 +24,9 @@ class Product extends Model
         return $this->belongsToMany('App\Allergen', 'allergens_products', 'product_id', 'allergen_id');
     }
     
+    /**
+    *a product has many comments
+    */
     public function comments(){
         return $this->hasMany('App\Comment', 'product_id' );
     }

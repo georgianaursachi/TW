@@ -25,7 +25,7 @@
 
                     <article>
                         <header>
-                            <h2>Cauta informatii despre un anumit produs alimentar</h2>
+                            <h2>Caută informații despre un anumit produs alimentar</h2>
                         </header>
                         <p></p>
                         <div class="row 50%">
@@ -183,15 +183,27 @@
                             @if($products->first() === $p ) 
                             @foreach($p->comments as $comment)
                         <article>
-                            <img src="/uploads/avatars/{{ $comment->user->avatar }}" class="image">
-                            <p>{{$comment->user->first_name}} {{$comment->user->last_name}}</p>
-                            <p>{{$comment->message}}</p>
+                            <div class="row">
+                            <div class="2u 12u(mobilep)" >
+                                <img src="/uploads/avatars/{{ $comment->user->avatar }}" class="image avatar">
+                            </div>
+                            <div class="10u 12u(mobilep)">
+                                <div class="comment-text"><strong>{{$comment->user->first_name}} {{$comment->user->last_name}}</strong> </div>
+                                <div>{{$comment->message}}</div>
+                                </div>
+                        </div>
                         </article>
                         @endforeach @endif @endforeach
 
                         <div class="row 50%">
                             <div class="8u">
-                                <textarea name="comentariu" id="comentariu" placeholder="Lasa un comentariu..." rows="5" required></textarea>
+                                <form class="form-grup" method="POST" action="/produse/{{$products->first()->product_name}}/comentarii">
+                                    {{csrf_field()}} 
+                                <textarea name="comentariu" id="comentariu" placeholder="Lasă un comentariu..." rows="5" required clas = "form-control"> </textarea>
+                                    <br>
+                                    <text name="product_id" value="{{$products->first()->id}}"></text>
+                                    <button class="btn btn-success button alt form-control" type="submit">Postează</button>
+                            </form>
                             </div>
                         </div>
                         @endif
@@ -214,13 +226,22 @@
                     
                     <section >
                         <h3>Produs recomandat</h3>
-                        @if($productRecomandation->first()->category == null)
-                            <img src="/images/groceries.png" class="image">
-                        @else <img src="/images/{{$productRecomandation->first()->category}}.png" class="image">
-                        @endif
-                        <br>
-                        <p ><a href="/produse/%7Bname%7D?produs=@php echo str_replace(' ', '+', $productRecomandation->first()->product_name);@endphp" >{{$productRecomandation->first()->product_name}}</a></p>
+                        @if(count($productRecomandation) == 0)
+                            <p>Ne cerem scuze! Momentan nu vă putem recomanda un produs!</p>
+                        @else
+                            @if($productRecomandation->first()->category == null)
+                                <img src="/images/groceries.png" class="image">
+                            @else <img src="/images/{{$productRecomandation->first()->category}}.png" class="image">
+                            @endif
+                            <br>
+
+
+                            <p ><a href="/produse/%7Bname%7D?produs=@php echo str_replace(' ', '+', $productRecomandation->first()->product_name);@endphp" >{{$productRecomandation->first()->product_name}}</a></p>
+                       @endif
+                        
                     </section>
+                    
+                    
 
                 </div>
             </div>
