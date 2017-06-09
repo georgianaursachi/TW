@@ -52,9 +52,9 @@
                                     <h3>Nivel de pericol</h3>
                                     @php
                                     switch( $e->danger_level ) {
-                                        case '0':@endphp <img src="/images/number-zero-in-a-circle.png"> @php break;
-                                        case '1':@endphp <img src="/images/number-one-in-a-circle.png"> @php break;
-                                        case '2':@endphp <img src="/images/number-two-in-a-circle.png"> @php break;
+                                        case '0':@endphp <img class="image center" src="/images/number-zero-in-a-circle.png"> @php break;
+                                        case '1':@endphp <img class="image center" src="/images/number-one-in-a-circle.png"> @php break;
+                                        case '2':@endphp <img class="image center" src="/images/number-two-in-a-circle.png"> @php break;
                                         
                                     }
                                     @endphp

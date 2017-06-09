@@ -81,12 +81,12 @@
 
                     <section>
                         <h3>Telefon:</h3>
-                        <p>004 0700 000 000</p>
+                        <p>0741 223 554</p>
                     </section>
 
                     <section>
                         <h3>E-mail:</h3>
-                        <p>contact@condr.com</p>
+                        <p>project.condr@gmail.com</p>
                     </section>
 
                     <section>

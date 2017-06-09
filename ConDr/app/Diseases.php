@@ -8,6 +8,7 @@ class Diseases extends Model
 {
     public $timestamps = false;//our table DISEASES doesn't have created_at and updated_at columns as expected
     
+    protected $fillable = ['id', 'disease_name', 'description', 'salt', 'sugar', 'fats', 'carbohydrate', 'fiber', 'protein', 'calories', 'saturates'];
     /**
     *many to many relationship between Users and Diseases
     */

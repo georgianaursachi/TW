@@ -54,7 +54,7 @@
     <div class="container">
         <header class="major">
 
-            <h2>Mesajele săptămânii</h2>
+            <h2>Principii pentru o viață sănătoasă</h2>
             <p></p>
             <div id="changeText" class="paragraph"></div>
                 <script type="text/javascript">

@@ -31,4 +31,14 @@ class User extends Authenticatable
     {
         return $this->passwd;
     }
+    
+    public function diseases()
+    {
+        return $this->belongsToMany('App\Diseases', 'user_disease', 'user_id', 'disease_id');
+    }
+    
+    public function allergens()
+    {
+        return $this->belongsToMany('App\Allergen', 'allergens_users', 'user_id', 'allergen_id');
+    }
 }

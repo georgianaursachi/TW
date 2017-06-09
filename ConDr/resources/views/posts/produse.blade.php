@@ -22,7 +22,7 @@
 
                     <article>
                         <header>
-                            <h2>Cauta informatii despre un anumit produs alimentar</h2>
+                            <h2>Caută informații despre un anumit produs alimentar</h2>
                         </header>
                         <p></p>
                          <div class="row 50%">
@@ -49,7 +49,7 @@
                     <!-- Sidebar -->
 
                     <section>
-                        <h3>Atentie!</h3>
+                        <h3>Atenție!</h3>
                         <p>Excesul de sare, zahăr şi grăsimi dăunează grav sănătăţii.</p>
                     </section>
 

@@ -17,41 +17,45 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/data', 'TestController@test');
-
 //Enumber route
 
 Route::get('/euri', 'PostsController@euri');
 
-//Enumber search E route
-
 Route::get('/euri/{name}', 'PostsController@euri_name');
 
 //Products routes
-
 Route::get('/produse', 'PostsController@produse');
 
 Route::get('/produse/{name}', 'PostsController@produse_name')->name('/produse/{name}');
 
+Route::post('/produse/{name}/comentarii', 'CommentsController@addComment');
 
 //Contact route
 
-Route::get('/contact', 'PostsController@contact');
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PostsController@getContact']);
+
+Route::post('contact', ['as' => 'contact_form', 'uses' => 'PostsController@postContact']);
+
 
 //Add product route
 
 Route::get('/adauga', 'PostsController@adauga');
 
+
+Route::post('/adauga',  ['as' => 'adauga', 'uses' => 'PostsController@adaugaProdus']);
 //Profile route
 
 Route::get('/profil', 'PostsController@profil');
 Route::get('/profil', 'PostsController@profil_table');
 
-Route::post('/profil', 'PostsController@update_avatar');
+Route::post('/profil', 'PostsController@settings');
 
 //Settings route
 
 Route::get('/setari', 'PostsController@setari');
+Route::get('/setari', 'PostsController@profil_table_settings');
+Route::get('/setari/boli/{name}', 'PostsController@destroy')->name('/setari/boli/{name}');
+Route::get('/setari/alergeni/{name}', 'PostsController@delete_allergen')->name('/setari/alergeni/{name}');
 
 //Contact routes
 
