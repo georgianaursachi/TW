@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://scholarly.vernacular.io/ -->
+<html lang="ro">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>ConDr Documentatie</title>
+    <link rel="stylesheet" href="./Scholarly HTML — Markedly Smart_files/scholarly.css">
+    <link rel="stylesheet" href="./Scholarly HTML — Markedly Smart_files/prism-coy.css">
+    <script src="./Scholarly HTML — Markedly Smart_files/prism.js.descărcare" defer=""></script>
+    <script type="text/javascript">
+        try {
+            var AG_onLoad = function(func) {
+                if (document.readyState === "complete" || document.readyState === "interactive") func();
+                else if (document.addEventListener) document.addEventListener("DOMContentLoaded", func);
+                else if (document.attachEvent) document.attachEvent("DOMContentLoaded", func)
+            };
+            var AG_removeElementById = function(id) {
+                var element = document.getElementById(id);
+                if (element && element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            };
+            var AG_removeElementBySelector = function(selector) {
+                if (!document.querySelectorAll) {
+                    return;
+                }
+                var nodes = document.querySelectorAll(selector);
+                if (nodes) {
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (nodes[i] && nodes[i].parentNode) {
+                            nodes[i].parentNode.removeChild(nodes[i]);
+                        }
+                    }
+                }
+            };
+            var AG_each = function(selector, fn) {
+                if (!document.querySelectorAll) return;
+                var elements = document.querySelectorAll(selector);
+                for (var i = 0; i < elements.length; i++) {
+                    fn(elements[i]);
+                };
+            };
+            var AG_removeParent = function(el, fn) {
+                while (el && el.parentNode) {
+                    if (fn(el)) {
+                        el.parentNode.removeChild(el);
+                        return;
+                    }
+                    el = el.parentNode;
+                }
+            };
+        } catch (ex) {
+            console.error('Error executing AG js: ' + ex);
+        }
+
+    </script>
+</head>
+
+<body prefix="">
+    <header>
+        <p class="title">ConDr</p>
+        <p class="subtitle">Documentatie</p>
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+        <h1>ConDr</h1>
+        <section>
+            <ol>
+                <li property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Mădălina Ioana </span>
+                        <span property="schema:familyName">Însurățelu</span>
+                    </a>
+
+                    <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a property="schema:email" href="mailto:ioanainsuratelu@yahoo.com" title="corresponding author">✉</a>
+            </sup>
+                </li>
+                <li property="schema:contributor" typeof="sa:ContributorRole">
+                    <a property="schema:contributor" typeof="schema:Person">
+                        <span property="schema:givenName">Georgiana</span>
+                        <span property="schema:familyName">Ursachi</span>
+                    </a>
+                    <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a property="schema:email" href="mailto:georgiana.ursachi08@gmail.com" title="corresponding author">✉</a>
+                    
+                </li>
+            </ol>
+            <ol>
+                <li id="scienceai">
+                    <a href="https://www.info.uaic.ro" typeof="schema:Corporation">
+                        <span property="schema:name">FII</span>
+                    </a>
+                </li>
+            </ol>
+        </section>
+
+        <section typeof="sa:Abstract" id="abstract">
+            <h2>Abstract</h2>
+            <p>
+               Aplicația web are rolul de a ajuta consumatorul să ia o decizie informată cu privire la cumpărarea unui produs alimentar.
+            </p>
+            <h2>Cuvinte cheie</h2>
+            <p>
+               ConDr, baza de date, consumator, produse alimentare, Euri, reteta, feedback
+            </p>
+        </section>
+        <section typeof="sa:MaterialsAndMethods" id="motivation">
+            <h2>Descriere proiect/ Motivație</h2>
+            <aside typeof="schema:WPSideBar">
+                <p>
+                    <strong>Nou</strong>: te poți alătura echipei noastre 
+                    <a href="https://github.com/georgianaursachi/TW">ConDr</a> pentru a ne ajuta să dezvoltăm aplicația.
+                </p>
+                <p>
+                   Această aplicație este încă în dezvoltare așa ca simte-te liber să te alături echipei noastre sau să ne trimiți ideile tale prin e-mail.
+                </p>
+            </aside>
+            <p>
+                Un utilizator va putea folosi aplicatia web doar cu ajutorul unui cont. In cazul in care nu are, atunci isi va putea creea unul. Crearea unui cont consta in introducerea unui nume si e-mail valid(unic, care nu mai exista in baza de date). Ulterior, odata ce si-a creat contul isi poate adauga la profilul sau boli si/sau alergii, eventual, chiar si o poza de profil si o descriere. Consumatorul va putea cauta un produs in baza de date(cu ajutorul unui cod de bare, care poate fi introdus de la tastatura sau denumirea produsului ). Drept rezultat va primi denumirea produsului si valorile nutritionale(sare, zahar, grasimi, fibre etc.) ale acestuia, dar si un sfat daca sa il cumpere sau nu(generat pe baza bolilor consumatorului).
+            </p>
+            <p>
+                O mare problema a citirii etichetei unui produs este intelegerea ingredientelor(Euri),
+                dar mai ales ce efecte au asupra organismului uman. Asadar, utilizatorul
+                va putea cauta un ingredient(dupa nr. CEE, exemplu E-122, sau denumirea sa,
+                ex: Azorubina). Va primi raspuns cu gradul de toxicitate si o mica descriere. De
+                asemenea, el comenta despre acel produs.
+            </p>
+            <p>
+                In plus, utilizatorul va putea primi idei de retete pe e-mail, la cerere, retetele fiind alese in functie de bolile/lipsurile utilizatorului.
+            </p>
+            <p>
+                Țelurile noastre sunt:
+            </p>
+            <ul>
+                <li>
+                    Să informăm cumparatorul cu privire la produsele existente pe piață.
+                </li>
+                <li>
+                    Să oferim un sfat in funcție de bolile și alergiile lui.
+                </li>
+                <li>
+                    În concluzie, să educăm utilizatorii să mănânce mai sănătos.
+                </li>
+            </ul>
+            
+        </section>
+        <section typeof="sa:Results" id="definition">
+            <h2>Tehnologii utilizate</h2>
+            <h3>Php</h3>
+            <p>
+               PHP este un limbaj de programare. Numele PHP provine din limba engleză și este un acronim recursiv : Php: Hypertext Preprocessor. Folosit inițial pentru a produce pagini web dinamice, este folosit pe scară largă în dezvoltarea paginilor și aplicațiilor web. Se folosește în principal înglobat în codul HTML, dar începând de la versiunea 4.3.0 se poate folosi și în mod „linie de comandă” (CLI), permițând crearea de aplicații independente. Este unul din cele mai importante limbaje de programare web open-source și server-side, existând versiuni disponibile pentru majoritatea web serverelor și pentru toate sistemele de operare.
+            </p>
+            <p>
+                Am ales php deoarece este unul din cele mai răspândite limbaje de prgramare pentru web.
+            </p>
+                <ul>
+                <li>Fast Load Time – PHP are viteză mare de încărcare. </li>
+                <li>Software - PHP este open source, deci gratis.</li>
+                <li>Baze de date - PHP este flexibil in ceea ce privește coexiunea cu o bază de date.</li>
+                </ul>
+            
+            <h3>HTML5/CSS3</h3>
+            <p>
+                HTML5 este un limbaj pentru structurarea și prezentarea conținutului pentru World Wide Web. HTML5 introduce un număr de noi elemente și atribute care reflectă utilizarea tipică a unui site modern.
+            </p>
+            <p>
+                CSS (Cascading Style Sheets) este un standard pentru formatarea elementelor unui document HTML. CSS3 reprezintă un upgrade ce aduce câteva atribute noi și ajută la dezvoltarea noilor concepte in webdesign.
+            </p>
+            <h3>Oracle</h3>
+            <p>
+                Oracle este un sistem de gestiune a bazelor de date relaționale, ce stochează informațiile sub formă de tabele.
+            </p>
+            <p>
+                Am ales să folosim Oracle deoarece: 
+            </p>
+            <ul>
+            <li>Aplicația noastră web se bazează pe o bază de date relatională.</li>
+            <li>Permite indexarea valorilor pentru o căutare mai rapidă a infomațiilor.</li>
+            <li>Respectă proprietățile ACID(atomicitate, consistență, izolare, durabilitate).</li>
+            <li>Este o bază de date tranzacțională.</li>
+            </ul>
+            <section id="file-headers">
+                <h3>Arhitectura aplicației</h3>
+                <h2>Laravel framework</h2>
+                <p>
+                    Laravel este un framework web gratis si open-source. Este folosit pentru dezvoltarea aplicațiilor web care urmeaza modelul arhitectural model–view–controller (MVC).
+                </p>
+                <p>
+                    MVC este un model arhitectural utilizat în ingineria software. Succesul modelului se datoreaza
+                    izolarii logicii de business fat,a de considerentele interfet, ei cu utilizatorul, rezultând
+                    o aplicat, ie unde aspectul vizual sau/s, i nivelele inferioare ale regulilor de
+                    business sunt mai us,or de modificat, fara a afecta alte nivele.
+                </p>
+                <figure typeof="sa:Image">
+                    <img src="./Scholarly HTML — Markedly Smart_files/mvc_diagram_with_routes.png" width="880" height="655">
+                    <figcaption>
+                        Un utilizator face o cerere la un Controller si primește raspuns un View.
+                    </figcaption>
+                </figure>
+                
+            </section>
+            <section id="article">
+                <h3>Detalii de implementare</h3>
+                <h2>Baza de date</h2>
+                <p>
+                    De multe ori este este mult mai rapid să executam anumite funcții in baza de date, ci nu aplicație, din cauza transferului mare de date pe rețea.
+                </p>
+                <p>
+                    O astfel de funcție care este implementată în baza de date este, și doar apelată din aplicație este:
+                </p>
+                <pre>
+                    <code>create or replace FUNCTION recomandare_reteta(p_user_id NUMBER) return number AS</code>
+                    <code>    v_random_number NUMBER;</code>
+                    <code>    v_count_retete NUMBER;</code>
+                    <code>    v_reteta_id NUMBER;</code>
+                    <code> BEGIN</code>
+                    <code>    SELECT COUNT(1) INTO v_count_retete FROM RECIPES;</code>
+                    <code>    v_reteta_id := 0;</code>
+                    <code>   WHILE (v_reteta_id = 0) LOOP</code>
+                    <code>     v_random_number := TRUNC(DBMS_RANDOM.VALUE(1, v_count_retete + 1));</code>
+
+                    <code>   IF email_recipes(p_user_id, v_random_number) = 1 THEN</code>
+                    <code>       v_reteta_id := v_random_number;</code>
+                    <code>   END IF;</code>
+                    <code> END LOOP;</code>
+                    <code> RETURN v_reteta_id;</code>
+                   <code> END  </code>
+                </pre>
+                <h2>Implementare MVC</h2>
+                <ol>
+                <li><p>
+                    Model Comment:
+                </p>
+                <pre>
+                <code>class Comment extends Model</code>
+                <code>    {</code>
+                <code>        protected $table = 'FEEDBACK'; //we store our comments in this tabel</code>
+                <code>        protected $fillable = ['id', 'user_id', 'product_id', 'rating',</code>
+                <code>        'message', 'created_at', 'updated_at']; //these are the columns of the table</code>  
+                <code>       public function user(){</code>
+                <code>            return $this->belongsTo('App\User', 'user_id', 'id');</code>
+                <code>        }</code>
+                <code>    }</code>
+                
+                
+                </pre>
+                <p>Aici se definesc proprietățile modelului si legatura lui cu baza de date.</p>
+                </li>
+                <li>
+                <p>
+                    Controller pentru Comment:
+                </p>
+                <pre>
+                <code>class CommentsController extends Controller</code>
+                <code>    {</code>
+                <code>        public function addComment($product_name){</code>
+                <code>        $product = Product::where('product_name', $product_name)->get();    </code>
+                <code>        Comment::create([</code>  
+                <code>          'user_id'=> Auth::user()->id,</code>
+                <code>          'product_id'=> $product->first()->id,</code>
+                <code>          'message' => request('comentariu')</code>
+                <code>              ]);</code>
+                <code>        }</code>
+                <code>         return back();</code>
+                <code>    }</code>
+                
+                
+                </pre>
+                
+
+                <p>
+                   În controller se efectuează operațiile cerute de user.
+                </p>
+                    </li>
+                    <li>
+                <p>
+                    View pentru Comment:
+                </p>
+                
+                <p>
+                    In view se face afișarea datelor returnate de controller.
+                </p>
+                    </li>
+                </ol>
+                
+            </section>
+            <section id="hunk-elements">
+                <h3>Acțuni ale utilizatorului</h3>
+                <ol>
+                    <li>Isi creeaza un cont pe aplicatie si se conecteaza</li>
+                    <li>Poate vizualiza toate categoriile de E-uri, cat si alimentele/produsele alimentare
+care exista in baza de date (din "Meniu")</li>
+                    <li>Acceseaza motorul de cautare, alegand cum doreste sa faca cautarea(prin
+introducerea codului de bare de la tastatura sau prin introducerea denumirii unui anumit produs/aditiv alimentar/
+ingredient)</li>
+                    <li>Odata gasit produsul, utilizatorul primeste informatii referitoare la acel produs(
+cat zahar, carbohidrati etc are produsul) si implicit i se va comunica
+daca acesta este, sau nu, potrivit pentru profilul lui.</li>
+                    <li>Adauga comentarii.</li>
+                </ol>
+                
+                
+                
+                    
+            </section>
+        </section>
+
+    </article>
+    <footer>
+        <p>
+            <a href="https://github.com/georgianaursachi/TW">Proiect realizat in cadrul FII, pentru materia TW</a>
+            
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
